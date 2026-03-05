@@ -8,7 +8,15 @@
 
         <!-- DB URL -->
         <property name="hibernate.connection.url">
-            jdbc:postgresql://localhost:5432/bank_db
+            jdbc:postgresql://localhost:5432/banking-system-v2-hibernate
+        </property>
+
+        <property name="hibernate.connection.username">
+            postgres
+        </property>
+
+        <property name="hibernate.connection.password">
+            @@@manju123
         </property>
 
         <!-- Dialect -->
@@ -21,6 +29,7 @@
 
         <!-- Show SQL in console -->
         <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
 
         <!-- Entities -->
         <mapping class="org.bankv2.model.Account"/>
