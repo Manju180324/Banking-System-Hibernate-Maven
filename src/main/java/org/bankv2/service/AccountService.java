@@ -23,4 +23,38 @@ public class AccountService {
         session.close();
     }
 
+    public Account getById(Long id){
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Account account = session.find(Account.class, id);
+        session.close();
+        return account;
+    }
+
+    public void deposit(Long id, double amount) {
+
+        Session session = HibernateUtil
+                .getSessionFactory()
+                .openSession();
+
+        Transaction tx = session.beginTransaction();
+
+        Account account = session.get(Account.class, id);
+
+        if (account != null) {
+
+            double newBalance = account.getBalance() + amount;
+            account.setBalance(newBalance);
+
+            session.merge(account);
+
+            System.out.println("Deposit successful");
+
+        } else {
+
+            System.out.println("Account not found");
+        }
+        tx.commit();
+        session.close();
+    }
+
 }
