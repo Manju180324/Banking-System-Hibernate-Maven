@@ -4,7 +4,7 @@ import org.bankv2.service.AccountService;
 
 public class App {
     public static void main(String[] args){
-        System.out.println("Maven project!!");
+        System.out.println("Maven");
 //        System.out.println(System.getenv("DB_USERNAME"));
 //        System.out.println(System.getenv("DB_PASSWORD"));
         AccountService service = new AccountService();
